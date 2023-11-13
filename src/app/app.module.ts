@@ -1,7 +1,9 @@
+import { AdminUsuarioNewRoutedComponent } from './components/usuario/admin-usuario-new-routed/admin-usuario-new-routed.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,11 +18,32 @@ import { LoginRoutedComponent } from './components/shared/login-routed/login-rou
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { LogoutRoutedComponent } from './components/shared/logout-routed/logout-routed.component';
+import { MenuUnroutedComponent } from './components/shared/menu-unrouted/menu-unrouted.component';
+import { HomeRoutedComponent } from './components/shared/home-routed/home-routed.component';
+import { AdminUsuarioFormUnroutedComponent } from './components/usuario/admin-usuario-form-unrouted/admin-usuario-form-unrouted.component';
+import { AdminUsuarioEditRoutedComponent } from './components/usuario/admin-usuario-edit-routed/admin-usuario-edit-routed.component';
+import { AdminUsuarioDetailUnroutedComponent } from './components/usuario/admin-usuario-detail-unrouted/admin-usuario-detail-unrouted.component';
+import { PaginatorModule } from 'primeng/paginator';
+import { AdminUsuarioPlistUnroutedComponent } from './components/usuario/admin-usuario-plist-unrouted/admin-usuario-plist-unrouted.component';
+import { AdminUsuarioPlistRoutedComponent } from './components/usuario/admin-usuario-plist-routed/admin-usuario-plist-routed.component';
+import { AdminUsuarioSelectionUnroutedComponent } from './components/usuario/admin-usuario-selection-unrouted/admin-usuario-selection-unrouted.component';
 
 @NgModule({
   declarations: [		
     AppComponent,
-    LoginRoutedComponent
+    LoginRoutedComponent,
+    LogoutRoutedComponent,
+    MenuUnroutedComponent,
+    HomeRoutedComponent,
+    AdminUsuarioFormUnroutedComponent,
+    AdminUsuarioDetailUnroutedComponent,
+    AdminUsuarioEditRoutedComponent,
+    AdminUsuarioNewRoutedComponent,
+    AdminUsuarioPlistUnroutedComponent,
+    AdminUsuarioPlistRoutedComponent,
+    AdminUsuarioSelectionUnroutedComponent
    ],
   imports: [
     BrowserModule,
@@ -29,7 +52,10 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+    DynamicDialogModule,
+    PaginatorModule
   ],
   providers: [
     UsuarioAjaxService,
@@ -37,7 +63,8 @@ import { MatInputModule } from '@angular/material/input';
     CompraAjaxService,
     SessionAjaxService,
     CryptoService,
-    MatSnackBar
+    MatSnackBar,
+    DialogService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,64 @@
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <table class="table table-striped table-hover">
+    <tbody>
+      <tr>
+        <th>Propiedad</th>
+        <th>Valor</th>
+      </tr>
+      <tr>
+        <th>Id</th>
+        <td>{{oUsuario.id}}</td>
+      </tr>
+      <tr>
+        <th>Nombre</th>
+        <td>{{oUsuario.nombre}}</td>
+      </tr>
+      <tr>
+        <th>Apellido</th>
+        <td>{{oUsuario.apellido}}</td>
+      </tr>
+      <tr>
+        <th>Username</th>
+        <td>{{oUsuario.username}}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{oUsuario.email}}</td>
+      </tr>
+      <tr>
+        <th>Dirección</th>
+        <td>{{oUsuario.direccion}}</td>
+      </tr>
+      <tr>
+        <th>Telefono</th>
+        <td>{{oUsuario.telefono}}</td>
+      </tr>
+      <tr>
+        <th>Saldo</th>
+        <td>{{oUsuario.saldo}}</td>
+      </tr>
+      <tr>
+        <th>Rol</th>
+        <td>
+          <span *ngIf="oUsuario.rol==false">Administrador</span>
+          <span *ngIf="oUsuario.rol==true">Usuario</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Compras realizadas</th>
+        <td>
+          <a routerLink="['/admin', 'compra', 'plist', 'byuser', oUsuario.id]" *ngIf="oUsuario.compras>0">{{oUsuario.compras}}</a>
+          <span *ngIf="oUsuario.compras==0">No hay compras</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

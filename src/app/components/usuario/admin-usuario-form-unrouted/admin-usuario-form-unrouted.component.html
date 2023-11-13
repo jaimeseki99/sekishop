@@ -1,0 +1,102 @@
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <div class="col-12">
+    <div class="d-flex justify-content-center my-3">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <mat-form-field *ngIf="operation=='EDIT'">
+            <mat-label>Id</mat-label>
+            <input matInput formControlName="id" placeholder="ID" required readonly>
+            <mat-hint align="end">(No puedes cambiar este número)</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" placeholder="Nombre" required>
+            <mat-hint align="end">De 3 a 255 carácteres</mat-hint>
+            <mat-error *ngIf="hasError('nombre', 'required')">El nombre es obligatorio</mat-error>
+            <mat-error *ngIf="hasError('nombre', 'minlength')">El nombre debe tener al menos 3 carácteres</mat-error>
+            <mat-error *ngIf="hasError('nombre', 'maxlength')">El nombre no puede tener más de 255 carácteres</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Apellido</mat-label>
+            <input matInput formControlName="apellido" placeholder="Apellido" required>
+            <mat-hint align="end">De 3 a 255 carácteres</mat-hint>
+            <mat-error *ngIf="hasError('apellido', 'required')">El apellido es obligatorio</mat-error>
+            <mat-error *ngIf="hasError('apellido', 'minlength')">El apellido debe tener al menos 3 carácteres</mat-error>
+            <mat-error *ngIf="hasError('apellido', 'maxlength')">El apellido no puede tener más de 255 carácteres</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" placeholder="Username" required>
+            <mat-hint align="end">De 3 a 15 carácteres</mat-hint>
+            <mat-error *ngIf="hasError('username', 'required')">El username es obligatorio</mat-error>
+            <mat-error *ngIf="hasError('username', 'minlength')">El username debe tener al menos 3 carácteres</mat-error>
+            <mat-error *ngIf="hasError('username', 'maxlength')">El username no puede tener más de 15 carácteres</mat-error>
+            <mat-error *ngIf="hasError('username', 'pattern')">El username debe tener solo letras y números</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Email" required>
+            <mat-hint align="end">Debe llevar @</mat-hint>
+            <mat-error *ngIf="hasError('email', 'required')">El email es obligatorio</mat-error>
+            <mat-error *ngIf="hasError('email', 'pattern')">El email debe tener un formato válido</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="direccion" placeholder="Dirección" required>
+            <mat-hint align="end">De 3 a 1000 carácteres</mat-hint>
+            <mat-error *ngIf="hasError('direccion', 'required')">La dirección es obligatoria</mat-error>
+            <mat-error *ngIf="hasError('direccion', 'minlength')">La dirección debe tener al menos 3 carácteres</mat-error>
+            <mat-error *ngIf="hasError('direccion', 'maxlength')">La dirección no puede tener más de 1000 carácteres</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Teléfono</mat-label>
+            <input matInput formControlName="telefono" placeholder="Teléfono" required>
+            <mat-hint align="end">9 digitos</mat-hint>
+            <mat-error *ngIf="hasError('telefono', 'required')">El teléfono es obligatorio</mat-error>
+            <mat-error *ngIf="hasError('telefono', 'pattern')">El teléfono debe tener solo números</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Saldo</mat-label>
+            <input matInput formControlName="saldo" placeholder="Saldo" required>
+            <mat-hint align="end">Solo números</mat-hint>
+            <mat-error *ngIf="hasError('saldo', 'required')">El saldo es obligatorio</mat-error>
+            <mat-error *ngIf="hasError('saldo', 'pattern')">El saldo debe tener solo números</mat-error>
+          </mat-form-field>
+        </div>
+        
+        <mat-radio-group aria-label="Type of user" formControlName="role" required>
+          <mat-radio-button [value]="true">Admin</mat-radio-button>
+          <mat-radio-button [value]="false">User</mat-radio-button>
+          <mat-error *ngIf="hasError('role', 'required')">Especifica si eres admin o usuario</mat-error>
+        </mat-radio-group>
+
+        <div class="text-center mt-5">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Save User</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
