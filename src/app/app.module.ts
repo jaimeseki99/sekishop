@@ -29,6 +29,8 @@ import { PaginatorModule } from 'primeng/paginator';
 import { AdminUsuarioPlistUnroutedComponent } from './components/usuario/admin-usuario-plist-unrouted/admin-usuario-plist-unrouted.component';
 import { AdminUsuarioPlistRoutedComponent } from './components/usuario/admin-usuario-plist-routed/admin-usuario-plist-routed.component';
 import { AdminUsuarioSelectionUnroutedComponent } from './components/usuario/admin-usuario-selection-unrouted/admin-usuario-selection-unrouted.component';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [		
@@ -55,7 +57,8 @@ import { AdminUsuarioSelectionUnroutedComponent } from './components/usuario/adm
     MatInputModule,
     MatRadioModule,
     DynamicDialogModule,
-    PaginatorModule
+    PaginatorModule,
+    HttpClientModule
   ],
   providers: [
     UsuarioAjaxService,
@@ -63,6 +66,7 @@ import { AdminUsuarioSelectionUnroutedComponent } from './components/usuario/adm
     CompraAjaxService,
     SessionAjaxService,
     CryptoService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     MatSnackBar,
     DialogService
   ],
