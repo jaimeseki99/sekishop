@@ -36,7 +36,7 @@ export class AdminUsuarioPlistRoutedComponent implements OnInit {
     })
   }
 
-  doEmpty() {
+  doEmpty($event: Event) {
     this.oUsuarioAjaxService.empty().subscribe({
       next: (oResponse: number) => {
         this.oMatSnackBar.open('Usuarios eliminados con éxito', '', {duration: 2000});

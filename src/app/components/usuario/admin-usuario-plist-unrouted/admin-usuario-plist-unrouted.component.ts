@@ -17,6 +17,7 @@ import { Subject } from 'rxjs';
 export class AdminUsuarioPlistUnroutedComponent implements OnInit {
 
   @Input() forceReload: Subject<boolean> = new Subject<boolean>();
+  bLoading: boolean = false;
 
   oPage: IUsuarioPage | undefined;
   orderField: string = 'id';
@@ -34,7 +35,14 @@ export class AdminUsuarioPlistUnroutedComponent implements OnInit {
 
   ngOnInit() {
     this.getPage();
-  }
+    this.forceReload.subscribe({
+      next: (v) => {
+        if (v) {
+          this.getPage();
+        }
+      }
+  });
+}
 
   getPage(): void {
     this.oUsuarioAjaxService.getPage(this.oPaginatorState.rows, this.oPaginatorState.page, this.orderField, this.orderDirection).subscribe({
