@@ -88,5 +88,5 @@ export interface IToken {
     iss: string;
     iat: number;
     exp: number;
-    name: string;
+    nombre: string;
 }

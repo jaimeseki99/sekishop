@@ -6,6 +6,7 @@ import { LogoutRoutedComponent } from './components/shared/logout-routed/logout-
 import { AdminUsuarioPlistRoutedComponent } from './components/usuario/admin-usuario-plist-routed/admin-usuario-plist-routed.component';
 import { AdminUsuarioNewRoutedComponent } from './components/usuario/admin-usuario-new-routed/admin-usuario-new-routed.component';
 import { AdminUsuarioEditRoutedComponent } from './components/usuario/admin-usuario-edit-routed/admin-usuario-edit-routed.component';
+import { AdminUsuarioViewRoutedComponent } from './components/usuario/admin-usuario-view-routed/admin-usuario-view-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeRoutedComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutRoutedComponent},
 
   { path: 'admin/usuario/plist', component: AdminUsuarioPlistRoutedComponent },
-  //{ path: 'admin/usuario/view/:id' },
+  { path: 'admin/usuario/view/:id', component: AdminUsuarioViewRoutedComponent},
   { path: 'admin/usuario/new', component: AdminUsuarioNewRoutedComponent },
   { path: 'admin/usuario/edit/:id', component: AdminUsuarioEditRoutedComponent },
 

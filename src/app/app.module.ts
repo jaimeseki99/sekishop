@@ -31,6 +31,7 @@ import { AdminUsuarioPlistRoutedComponent } from './components/usuario/admin-usu
 import { AdminUsuarioSelectionUnroutedComponent } from './components/usuario/admin-usuario-selection-unrouted/admin-usuario-selection-unrouted.component';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { AdminUsuarioViewRoutedComponent } from './components/usuario/admin-usuario-view-routed/admin-usuario-view-routed.component';
 
 @NgModule({
   declarations: [		
@@ -45,7 +46,8 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     AdminUsuarioNewRoutedComponent,
     AdminUsuarioPlistUnroutedComponent,
     AdminUsuarioPlistRoutedComponent,
-    AdminUsuarioSelectionUnroutedComponent
+    AdminUsuarioSelectionUnroutedComponent,
+    AdminUsuarioViewRoutedComponent
    ],
   imports: [
     BrowserModule,
@@ -65,10 +67,10 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     ProductoAjaxService,
     CompraAjaxService,
     SessionAjaxService,
-    CryptoService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     MatSnackBar,
-    DialogService
+    DialogService,
+    CryptoService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

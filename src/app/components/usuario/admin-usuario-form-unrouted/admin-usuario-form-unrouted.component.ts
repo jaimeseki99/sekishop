@@ -39,7 +39,7 @@ export class AdminUsuarioFormUnroutedComponent implements OnInit {
       email: [oUsuario.email, [Validators.required, Validators.email]],
       direccion: [oUsuario.direccion, [Validators.required, Validators.minLength(3), Validators.maxLength(1000)]],
       telefono: [oUsuario.telefono,  [Validators.required, Validators.maxLength(9), Validators.pattern('^[0-9]+$')]],
-      saldo: [oUsuario.saldo, [Validators.required, Validators.pattern('^-?\d*\.?\d+$')]],
+      saldo: [oUsuario.saldo, [Validators.required]],
       rol: [oUsuario.rol, [Validators.required]],
     })
    }
@@ -63,7 +63,7 @@ export class AdminUsuarioFormUnroutedComponent implements OnInit {
 
   public hasError = (controlName: string, errorName: string) => {
     return this.userForm.controls[controlName].hasError(errorName);
-  }
+   }
 
   onSubmit() {
     if (this.userForm.valid) {

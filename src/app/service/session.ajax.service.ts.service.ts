@@ -52,7 +52,7 @@ export class SessionAjaxService {
             if (!token) {
                 return "";
             } else {
-                return this.parseJwt(token).name;
+                return this.parseJwt(token).nombre;
             }
         } else {
             return "";
