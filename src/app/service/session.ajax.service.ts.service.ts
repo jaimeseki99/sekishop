@@ -1,7 +1,8 @@
+import { IToken } from './../model/model.interfaces';
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { API_URL } from "src/environment/environment";
-import { IToken, SessionEvent } from "../model/model.interfaces";
+import { SessionEvent } from "../model/model.interfaces";
 import { HttpClient } from "@angular/common/http";
 import { UsuarioAjaxService } from "./usuario.ajax.service.service";
 
@@ -43,8 +44,18 @@ export class SessionAjaxService {
     }
 
     isSessionActive(): Boolean {
-        return this.getToken() != null;
-    }
+        let strToken: string | null = localStorage.getItem('token');
+        if (strToken) {
+            let oDecodedToken: IToken = this.parseJwt(strToken);
+            if (Date.now() >= oDecodedToken.exp * 1000) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    } 
 
     getUsername(): string {
         if (this.isSessionActive()) {

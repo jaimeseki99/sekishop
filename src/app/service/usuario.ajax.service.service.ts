@@ -46,7 +46,7 @@ export class UsuarioAjaxService {
     }
 
     generateRandom(amount: number): Observable<number> {
-        return this.oHttpClient.post<number>(this.sUrl + "/populate" + amount, null);
+        return this.oHttpClient.post<number>(this.sUrl + "/populate/" + amount, null);
     }
 
     empty(): Observable<number> {

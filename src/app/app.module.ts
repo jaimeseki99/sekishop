@@ -26,12 +26,16 @@ import { AdminUsuarioFormUnroutedComponent } from './components/usuario/admin-us
 import { AdminUsuarioEditRoutedComponent } from './components/usuario/admin-usuario-edit-routed/admin-usuario-edit-routed.component';
 import { AdminUsuarioDetailUnroutedComponent } from './components/usuario/admin-usuario-detail-unrouted/admin-usuario-detail-unrouted.component';
 import { PaginatorModule } from 'primeng/paginator';
-import { AdminUsuarioPlistUnroutedComponent } from './components/usuario/admin-usuario-plist-unrouted/admin-usuario-plist-unrouted.component';
-import { AdminUsuarioPlistRoutedComponent } from './components/usuario/admin-usuario-plist-routed/admin-usuario-plist-routed.component';
 import { AdminUsuarioSelectionUnroutedComponent } from './components/usuario/admin-usuario-selection-unrouted/admin-usuario-selection-unrouted.component';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { AdminUsuarioViewRoutedComponent } from './components/usuario/admin-usuario-view-routed/admin-usuario-view-routed.component';
+import { RouterModule } from '@angular/router';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { AdminUsuarioPlistRoutedComponent } from './components/usuario/admin-usuario-plist-routed/admin-usuario-plist-routed.component';
+import { AdminUsuarioPlistUnroutedComponent } from './components/usuario/admin-usuario-plist-unrouted/admin-usuario-plist-unrouted.component';
+
 
 @NgModule({
   declarations: [		
@@ -44,10 +48,10 @@ import { AdminUsuarioViewRoutedComponent } from './components/usuario/admin-usua
     AdminUsuarioDetailUnroutedComponent,
     AdminUsuarioEditRoutedComponent,
     AdminUsuarioNewRoutedComponent,
-    AdminUsuarioPlistUnroutedComponent,
-    AdminUsuarioPlistRoutedComponent,
     AdminUsuarioSelectionUnroutedComponent,
-    AdminUsuarioViewRoutedComponent
+    AdminUsuarioViewRoutedComponent,
+    AdminUsuarioPlistRoutedComponent,
+    AdminUsuarioPlistUnroutedComponent
    ],
   imports: [
     BrowserModule,
@@ -60,7 +64,11 @@ import { AdminUsuarioViewRoutedComponent } from './components/usuario/admin-usua
     MatRadioModule,
     DynamicDialogModule,
     PaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    ConfirmPopupModule,
+    ConfirmDialogModule
+    
   ],
   providers: [
     UsuarioAjaxService,

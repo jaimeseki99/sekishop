@@ -12,13 +12,13 @@
                   <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" routerLink="/admin/usuario/plist" *ngIf="strUsername && oSessionUsuario?.rol==false">Usuarios</a>
+                  <a class="nav-link" routerLink="/admin/usuario/plist" *ngIf="strUsername && oSessionUsuario?.rol==true">Usuarios</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" routerLink="/admin/producto/plist" *ngIf="strUsername && oSessionUsuario?.rol==false">Productos</a>
+                  <a class="nav-link" routerLink="/admin/producto/plist" *ngIf="strUsername && oSessionUsuario?.rol==true">Productos</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" routerLink="/admin/compra/plist" *ngIf="strUsername && oSessionUsuario?.rol==false">Compras</a>
+                  <a class="nav-link" routerLink="/admin/compra/plist" *ngIf="strUsername && oSessionUsuario?.rol==true">Compras</a>
               </li>
 
           </ul>
