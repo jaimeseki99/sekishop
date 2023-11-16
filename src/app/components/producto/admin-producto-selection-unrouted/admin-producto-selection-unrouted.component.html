@@ -1,0 +1,47 @@
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <div class="d-flex justify-content-between mb-3">
+    <h3>Ningún filtro activo</h3>
+    <h3>Mostrando {{oPage?.numberOfElements}} productos de un total de {{oPage?.totalElements}} productos</h3>
+  </div>
+  <div class="flex justify-content-center mb-3">
+    <p-paginator (onPageChange)="onPageChange($event)" [first]="oPaginatorState.first!" [rows]="oPaginatorState.rows!"
+    [totalRecords]="oPage?.totalElements || 0"></p-paginator>
+  </div>
+</div>
+
+<div class="mb-5">
+  <table class="table table-bordered table-striped table-hover table-sm">
+    <thead>
+      <tr>
+        <th (click)="doOrder('id')">ID</th>
+        <th (click)="doOrder('nombre')">Nombre</th>
+        <th (click)="doOrder('categoria')">Categoría</th>
+        <th (click)="doOrder('stock')">Stock</th>
+        <th (click)="doOrder('precio')">Precio</th>
+        <th (click)="doOrder('descripcion')">Descripción</th>
+        <th>Compras</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of oPage?.content">
+        <td>{{producto.id}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.categoria}}</td>
+        <td>{{producto.stock}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.descripcion}}</td>
+        <td class="text-center">
+          <a routerLink="['/admin', 'compra', 'plist', 'byproducto', producto.id]" *ngIf="producto.compras>0">{{producto.compras}}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>

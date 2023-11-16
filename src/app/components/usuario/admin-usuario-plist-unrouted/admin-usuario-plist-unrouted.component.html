@@ -8,13 +8,14 @@
 
 <div *ngIf="status==null">
   <div class="d-flex justify-content-between mb-3">
-    <h3>Ningún filtro activo</h3>
-    <h3>Mostrando {{oPage?.numberOfElements}} usuarios de un total de {{oPage?.totalElements}} usuarios.</h3>
+    <h3>No active filter</h3>
+    <h3>Showing {{oPage?.numberOfElements}} of total {{oPage?.totalElements}} users.</h3>
   </div>
   <div class="flex justify-content-center mb-3">
     <p-paginator (onPageChange)="onPageChange($event)" [first]="oPaginatorState.first!" [rows]="oPaginatorState.rows!"
       [totalRecords]="oPage?.totalElements || 0"></p-paginator>
   </div>
+
 
   <div class="mb-5 ">
     <table class="table table-bordered table-striped table-hover table-sm">
@@ -68,13 +69,16 @@
 
 
 
+
+
+
   </div>
 </div>
 
 
 <p-confirmDialog #cd [style]="{ width: '30vw' }">
   <ng-template pTemplate="header">
-    <h5><i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"></i> User removal</h5>
+    <h5><i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"></i> Borrar Usuario</h5>
   </ng-template>
   <ng-template pTemplate="message">
     <div class="container d-flex align-items-center justify-content-center">
@@ -82,7 +86,7 @@
     </div>
   </ng-template>
   <ng-template pTemplate="footer">
-    <p>¿Seguro que quieres borrar el usuario?</p>
+    <p>¿Estás seguro de borrar el usuario?</p>
     <button class="btn btn-primary mx-1" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
     <button class="btn btn-danger mx-1" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
   </ng-template>

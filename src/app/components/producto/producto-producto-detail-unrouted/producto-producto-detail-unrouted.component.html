@@ -1,0 +1,44 @@
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+      <div class="alert alert-danger" role="alert">
+          {{status!.error.message}} - {{status!.message}}
+      </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <table class="table table-striped table-hover">
+    <tbody>
+      <tr>
+        <th>Nombre</th>
+        <td>{{oProducto.nombre}}</td>
+      </tr>
+      <tr>
+        <th>Categoría</th>
+        <td>{{oProducto.categoria}}</td>
+      </tr>
+      <tr>
+        <th>Stock</th>
+        <td>{{oProducto.stock}}</td>
+      </tr>
+      <tr>
+        <th>Precio</th>
+        <td>{{oProducto.precio}}</td>
+      </tr>
+      <tr>
+        <th>Descripción</th>
+        <td>{{oProducto.descripcion}}</td>
+      </tr>
+      <tr>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Compras</th>
+        <td>
+          <span *ngIf="oProducto.compras==0">Todavía no se ha vendido el producto</span>
+          <span *ngIf="oProducto.compras>0">{{oProducto.compras}}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

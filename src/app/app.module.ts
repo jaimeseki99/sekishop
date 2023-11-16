@@ -35,6 +35,15 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { AdminUsuarioPlistRoutedComponent } from './components/usuario/admin-usuario-plist-routed/admin-usuario-plist-routed.component';
 import { AdminUsuarioPlistUnroutedComponent } from './components/usuario/admin-usuario-plist-unrouted/admin-usuario-plist-unrouted.component';
+import { AdminProductoDetailUnroutedComponent } from './components/producto/admin-producto-detail-unrouted/admin-producto-detail-unrouted.component';
+import { AdminProductoViewRoutedComponent } from './components/producto/admin-producto-view-routed/admin-producto-view-routed.component';
+import { AdminProductoEditRoutedComponent } from './components/producto/admin-producto-edit-routed/admin-producto-edit-routed.component';
+import { AdminProductoFormUnroutedComponent } from './components/producto/admin-producto-form-unrouted/admin-producto-form-unrouted.component';
+import { AdminProductoNewRoutedComponent } from './components/producto/admin-producto-new-routed/admin-producto-new-routed.component';
+import { AdminProductoPlistRoutedComponent } from './components/producto/admin-producto-plist-routed/admin-producto-plist-routed.component';
+import { AdminProductoPlistUnroutedComponent } from './components/producto/admin-producto-plist-unrouted/admin-producto-plist-unrouted.component';
+import { AdminProductoSelectionUnroutedComponent } from './components/producto/admin-producto-selection-unrouted/admin-producto-selection-unrouted.component';
+import { ConfirmationService } from 'primeng/api';
 
 
 @NgModule({
@@ -51,7 +60,15 @@ import { AdminUsuarioPlistUnroutedComponent } from './components/usuario/admin-u
     AdminUsuarioSelectionUnroutedComponent,
     AdminUsuarioViewRoutedComponent,
     AdminUsuarioPlistRoutedComponent,
-    AdminUsuarioPlistUnroutedComponent
+    AdminUsuarioPlistUnroutedComponent,
+    AdminProductoDetailUnroutedComponent,
+    AdminProductoSelectionUnroutedComponent,
+    AdminProductoViewRoutedComponent,
+    AdminProductoEditRoutedComponent,
+    AdminProductoFormUnroutedComponent,
+    AdminProductoNewRoutedComponent,
+    AdminProductoPlistRoutedComponent,
+    AdminProductoPlistUnroutedComponent
    ],
   imports: [
     BrowserModule,
@@ -68,7 +85,6 @@ import { AdminUsuarioPlistUnroutedComponent } from './components/usuario/admin-u
     RouterModule,
     ConfirmPopupModule,
     ConfirmDialogModule
-    
   ],
   providers: [
     UsuarioAjaxService,
@@ -78,7 +94,8 @@ import { AdminUsuarioPlistUnroutedComponent } from './components/usuario/admin-u
     MatSnackBar,
     DialogService,
     CryptoService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })
