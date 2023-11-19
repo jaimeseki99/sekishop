@@ -1,4 +1,4 @@
-import { IToken } from './../model/model.interfaces';
+import { IToken, IUsuario } from './../model/model.interfaces';
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { API_URL } from "src/environment/environment";
@@ -76,5 +76,13 @@ export class SessionAjaxService {
 
     emit(event: SessionEvent) {
         this.subjectSession.next(event);
+    }
+
+    getSessionUsuario(): Observable<IUsuario> | null {
+        if (this.isSessionActive()) {
+            return this.oUsuarioAjaxService.getByUsername(this.getUsername());
+        } else {
+            return null;
+        }
     }
 }

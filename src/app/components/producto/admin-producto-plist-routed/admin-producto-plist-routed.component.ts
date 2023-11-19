@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 import { ProductoAjaxService } from 'src/app/service/producto.ajax.service.service';
 
 @Component({
+  providers: [ConfirmationService],
   selector: 'app-admin-producto-plist-routed',
   templateUrl: './admin-producto-plist-routed.component.html',
   styleUrls: ['./admin-producto-plist-routed.component.css']

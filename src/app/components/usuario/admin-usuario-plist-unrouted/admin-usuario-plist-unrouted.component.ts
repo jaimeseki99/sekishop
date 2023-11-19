@@ -10,6 +10,7 @@ import { UsuarioAjaxService } from 'src/app/service/usuario.ajax.service.service
 import { AdminUsuarioDetailUnroutedComponent } from '../admin-usuario-detail-unrouted/admin-usuario-detail-unrouted.component';
 
 @Component({
+  providers: [ConfirmationService],
   selector: 'app-admin-usuario-plist-unrouted',
   templateUrl: './admin-usuario-plist-unrouted.component.html',
   styleUrls: ['./admin-usuario-plist-unrouted.component.css']

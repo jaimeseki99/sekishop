@@ -49,7 +49,7 @@
             <span *ngIf="usuario.rol==false">Admin</span>
           </td>
           <td class="text-center">
-            <a [routerLink]="['/admin','compra','plist','byuser',usuario.id]" *ngIf="usuario.compras>0">{{usuario.compras}}</a>
+            <a [routerLink]="['/admin','compra','plist','byusuario',usuario.id]" *ngIf="usuario.compras>0">{{usuario.compras}}</a>
             <span *ngIf="usuario.compras==0">0</span>
           </td>
           <td class="text-center">

@@ -11,6 +11,10 @@ import { AdminProductoViewRoutedComponent } from './components/producto/admin-pr
 import { AdminProductoEditRoutedComponent } from './components/producto/admin-producto-edit-routed/admin-producto-edit-routed.component';
 import { AdminProductoNewRoutedComponent } from './components/producto/admin-producto-new-routed/admin-producto-new-routed.component';
 import { AdminProductoPlistRoutedComponent } from './components/producto/admin-producto-plist-routed/admin-producto-plist-routed.component';
+import { AdminCompraNewRoutedComponent } from './components/compra/admin-compra-new-routed/admin-compra-new-routed.component';
+import { AdminCompraEditRoutedComponent } from './components/compra/admin-compra-edit-routed/admin-compra-edit-routed.component';
+import { AdminCompraPlistRoutedComponent } from './components/compra/admin-compra-plist-routed/admin-compra-plist-routed.component';
+import { AdminCompraViewRoutedComponent } from './components/compra/admin-compra-view-routed/admin-compra-view-routed.component';
 
 
 
@@ -25,19 +29,18 @@ const routes: Routes = [
   { path: 'admin/usuario/new', component: AdminUsuarioNewRoutedComponent },
   { path: 'admin/usuario/edit/:id', component: AdminUsuarioEditRoutedComponent },
 
-  { path: 'producto/plist', component: AdminProductoPlistRoutedComponent},
 
   { path: 'admin/producto/plist', component: AdminProductoPlistRoutedComponent },
   { path: 'admin/producto/view/:id', component: AdminProductoViewRoutedComponent },
   { path: 'admin/producto/new', component: AdminProductoNewRoutedComponent },
-  { path: 'admin/producto/edit/:id', component: AdminProductoEditRoutedComponent }
+  { path: 'admin/producto/edit/:id', component: AdminProductoEditRoutedComponent },
 
-  //{ path: 'admin/compra/plist' },
-  //{ path: 'admin/compra/byuser/:iduser'},
-  //{ path: 'admin/compra/byproducto/:idproducto'},
-  //{ path: 'admin/compra/view/:id' },
-  //{ path: 'admin/compra/add' },
-  //{ path: 'admin/compra/edit/:id'}
+  { path: 'admin/compra/plist', component: AdminCompraPlistRoutedComponent },
+  { path: 'admin/compra/plist/byusuario/:idusuario', component: AdminCompraPlistRoutedComponent},
+  { path: 'admin/compra/plist/byproducto/:idproducto', component: AdminCompraPlistRoutedComponent},
+  { path: 'admin/compra/view/:id', component: AdminCompraViewRoutedComponent},
+  { path: 'admin/compra/new', component: AdminCompraNewRoutedComponent },
+  { path: 'admin/compra/edit/:id', component: AdminCompraEditRoutedComponent}
 
 ];
 

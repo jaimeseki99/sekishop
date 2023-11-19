@@ -1,9 +1,13 @@
+import { ProductoProductoDetailUnroutedComponent } from './components/producto/producto-producto-detail-unrouted/producto-producto-detail-unrouted.component';
 import { AdminUsuarioNewRoutedComponent } from './components/usuario/admin-usuario-new-routed/admin-usuario-new-routed.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CalendarModule } from 'primeng/calendar';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +48,14 @@ import { AdminProductoPlistRoutedComponent } from './components/producto/admin-p
 import { AdminProductoPlistUnroutedComponent } from './components/producto/admin-producto-plist-unrouted/admin-producto-plist-unrouted.component';
 import { AdminProductoSelectionUnroutedComponent } from './components/producto/admin-producto-selection-unrouted/admin-producto-selection-unrouted.component';
 import { ConfirmationService } from 'primeng/api';
+import { AdminCompraDetailUnroutedComponent } from './components/compra/admin-compra-detail-unrouted/admin-compra-detail-unrouted.component';
+import { AdminCompraEditRoutedComponent } from './components/compra/admin-compra-edit-routed/admin-compra-edit-routed.component';
+import { AdminCompraFormUnroutedComponent } from './components/compra/admin-compra-form-unrouted/admin-compra-form-unrouted.component';
+import { AdminCompraNewRoutedComponent } from './components/compra/admin-compra-new-routed/admin-compra-new-routed.component';
+import { AdminCompraPlistRoutedComponent } from './components/compra/admin-compra-plist-routed/admin-compra-plist-routed.component';
+import { AdminCompraPlistUnroutedComponent } from './components/compra/admin-compra-plist-unrouted/admin-compra-plist-unrouted.component';
+import { AdminCompraViewRoutedComponent } from './components/compra/admin-compra-view-routed/admin-compra-view-routed.component';
+import { FooterUnroutedComponent } from './components/shared/footer-unrouted/footer-unrouted.component';
 
 
 @NgModule({
@@ -53,6 +65,7 @@ import { ConfirmationService } from 'primeng/api';
     LogoutRoutedComponent,
     MenuUnroutedComponent,
     HomeRoutedComponent,
+    FooterUnroutedComponent,
     AdminUsuarioFormUnroutedComponent,
     AdminUsuarioDetailUnroutedComponent,
     AdminUsuarioEditRoutedComponent,
@@ -68,7 +81,15 @@ import { ConfirmationService } from 'primeng/api';
     AdminProductoFormUnroutedComponent,
     AdminProductoNewRoutedComponent,
     AdminProductoPlistRoutedComponent,
-    AdminProductoPlistUnroutedComponent
+    AdminProductoPlistUnroutedComponent,
+    ProductoProductoDetailUnroutedComponent,
+    AdminCompraDetailUnroutedComponent,
+    AdminCompraEditRoutedComponent,
+    AdminCompraFormUnroutedComponent,
+    AdminCompraNewRoutedComponent,
+    AdminCompraPlistRoutedComponent,
+    AdminCompraPlistUnroutedComponent,
+    AdminCompraViewRoutedComponent
    ],
   imports: [
     BrowserModule,
@@ -84,7 +105,10 @@ import { ConfirmationService } from 'primeng/api';
     HttpClientModule,
     RouterModule,
     ConfirmPopupModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    MatDatepickerModule,
+    CalendarModule,
+    MatNativeDateModule
   ],
   providers: [
     UsuarioAjaxService,

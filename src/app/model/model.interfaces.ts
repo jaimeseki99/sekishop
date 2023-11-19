@@ -70,6 +70,7 @@ export interface IProductoPage extends IPage<IProducto> {
 export interface ICompra extends IEntity {
     cantidad: number,
     coste: number,
+    fecha: Date,
     usuario: IUsuario,
     producto: IProducto
 }
@@ -89,4 +90,5 @@ export interface IToken {
     iat: number;
     exp: number;
     nombre: string;
+    rol: boolean;
 }

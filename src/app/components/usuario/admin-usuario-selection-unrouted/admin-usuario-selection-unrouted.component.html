@@ -51,6 +51,11 @@
         <td class="text-center">
           <a routerLink="['/admin', 'compra', 'plist', 'byuser', usuario.id]" *ngIf="usuario.compras>0">{{usuario.compras}}</a>
         </td>
+        <td class="text-center">
+          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <button class="btn btn-primary" (click)="onSelectUser(usuario)"><i class="pi pi-plus-circle"></i></button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -40,7 +40,7 @@
           <td>{{producto.precio}}</td>
           <td>{{producto.descripcion}}</td>
           <td class="text-center">
-            <a [routerLink]="['/admin','compra','plist','byproduct', producto.id]" *ngIf="producto.compras>0">{{producto.compras}}</a>
+            <a [routerLink]="['/admin','compra','plist','byproducto', producto.id]" *ngIf="producto.compras>0">{{producto.compras}}</a>
             <span *ngIf="producto.compras==0">0</span>
           </td>
           <td class="text-center">

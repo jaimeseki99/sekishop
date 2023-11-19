@@ -10,6 +10,7 @@ import { ProductoAjaxService } from 'src/app/service/producto.ajax.service.servi
 import { AdminProductoDetailUnroutedComponent } from '../admin-producto-detail-unrouted/admin-producto-detail-unrouted.component';
 
 @Component({
+  providers: [ConfirmationService],
   selector: 'app-admin-producto-plist-unrouted',
   templateUrl: './admin-producto-plist-unrouted.component.html',
   styleUrls: ['./admin-producto-plist-unrouted.component.css']
