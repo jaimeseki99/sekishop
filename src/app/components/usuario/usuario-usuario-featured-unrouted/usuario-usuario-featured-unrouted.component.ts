@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Paginator, PaginatorState } from 'primeng/paginator';
 import { IUsuario, IUsuarioPage } from 'src/app/model/model.interfaces';
 import { UsuarioAjaxService } from 'src/app/service/usuario.ajax.service.service';
@@ -15,6 +15,8 @@ export class UsuarioUsuarioFeaturedUnroutedComponent implements OnInit {
   oPaginatorState: PaginatorState = { first: 0, rows: 10, page: 0, pageCount: 0 };
   status: HttpErrorResponse | null = null;
   oUsuarioToRemove: IUsuario | null = null;
+
+  @Output() usuarioClicked: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(
     private oUsuarioAjaxService: UsuarioAjaxService,
@@ -36,5 +38,9 @@ export class UsuarioUsuarioFeaturedUnroutedComponent implements OnInit {
   })
 
 }
+
+  onUsuariolick(usuarioId: number) {
+    this.usuarioClicked.emit(usuarioId);
+  }
 
 }

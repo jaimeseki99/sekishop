@@ -46,7 +46,7 @@ export class ProductoAjaxService {
     getPageByCompraDesc(size: number | undefined, page: number | undefined): Observable<IProductoPage> {
         if (!size) size = 10;
         if (!page) page = 0;
-        return this.oHttpClient.get<IProductoPage>(this.sUrl + "/compradesc?size=" + size + "&page=" + page);
+        return this.oHttpClient.get<IProductoPage>(this.sUrl + "/comprasdesc?size=" + size + "&page=" + page);
     }
 
     empty(): Observable<number> {

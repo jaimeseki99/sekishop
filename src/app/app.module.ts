@@ -60,6 +60,7 @@ import { UsuarioUsuarioDetailUnroutedComponent } from './components/usuario/usua
 import { UsuarioUsuarioFeaturedUnroutedComponent } from './components/usuario/usuario-usuario-featured-unrouted/usuario-usuario-featured-unrouted.component';
 import { UsuarioCompraDetailUnroutedComponent } from './components/compra/usuario-compra-detail-unrouted/usuario-compra-detail-unrouted.component';
 import { UsuarioCompraFormUnroutedComponent } from './components/compra/usuario-compra-form-unrouted/usuario-compra-form-unrouted.component';
+import { ProductoProductoFeaturedUnroutedComponent } from './components/producto/producto-producto-featured-unrouted/producto-producto-featured-unrouted.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { UsuarioCompraFormUnroutedComponent } from './components/compra/usuario-
     AdminProductoPlistRoutedComponent,
     AdminProductoPlistUnroutedComponent,
     ProductoProductoDetailUnroutedComponent,
+    ProductoProductoFeaturedUnroutedComponent,
     AdminCompraDetailUnroutedComponent,
     AdminCompraEditRoutedComponent,
     AdminCompraFormUnroutedComponent,
