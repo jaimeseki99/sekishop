@@ -43,6 +43,12 @@ export class ProductoAjaxService {
         return this.oHttpClient.post<number>(this.sUrl + "/populate/" + amount, null);
     }
 
+    getPageByCompraDesc(size: number | undefined, page: number | undefined): Observable<IProductoPage> {
+        if (!size) size = 10;
+        if (!page) page = 0;
+        return this.oHttpClient.get<IProductoPage>(this.sUrl + "/compradesc?size=" + size + "&page=" + page);
+    }
+
     empty(): Observable<number> {
         return this.oHttpClient.delete<number>(this.sUrl + "/empty");
     }

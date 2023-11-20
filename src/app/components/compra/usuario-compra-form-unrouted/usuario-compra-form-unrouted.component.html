@@ -1,0 +1,27 @@
+<div *ngIf="status !== null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status === null">
+  <div class="col-12">
+    <div class="d-flex justify-content-center my-3">
+      <form [formGroup]="compraForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <mat-form-field  [style.width.px]=500>
+            <mat-label>Cantidad:</mat-label>
+            <input matInput type="number" formControlName="cantidad" placeholder="Cantidad" required>
+            <mat-hint align="end">(Debes introducir un número positivo)</mat-hint>
+            <mat-error *ngIf="hasError('cantidad', 'required')">Introduce una cantidad</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="text-center mt-5">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!compraForm.valid">Realizar Compra</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

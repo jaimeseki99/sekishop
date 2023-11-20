@@ -1,0 +1,17 @@
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <div class=" d-flex">
+    <ol>
+      <li *ngFor="let usuario of oPage?.content">
+        {{usuario.username}}: {{usuario.compras}} compras
+      </li>
+    </ol>
+  </div>
+</div>

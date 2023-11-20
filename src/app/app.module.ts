@@ -56,6 +56,10 @@ import { AdminCompraPlistRoutedComponent } from './components/compra/admin-compr
 import { AdminCompraPlistUnroutedComponent } from './components/compra/admin-compra-plist-unrouted/admin-compra-plist-unrouted.component';
 import { AdminCompraViewRoutedComponent } from './components/compra/admin-compra-view-routed/admin-compra-view-routed.component';
 import { FooterUnroutedComponent } from './components/shared/footer-unrouted/footer-unrouted.component';
+import { UsuarioUsuarioDetailUnroutedComponent } from './components/usuario/usuario-usuario-detail-unrouted/usuario-usuario-detail-unrouted.component';
+import { UsuarioUsuarioFeaturedUnroutedComponent } from './components/usuario/usuario-usuario-featured-unrouted/usuario-usuario-featured-unrouted.component';
+import { UsuarioCompraDetailUnroutedComponent } from './components/compra/usuario-compra-detail-unrouted/usuario-compra-detail-unrouted.component';
+import { UsuarioCompraFormUnroutedComponent } from './components/compra/usuario-compra-form-unrouted/usuario-compra-form-unrouted.component';
 
 
 @NgModule({
@@ -89,7 +93,11 @@ import { FooterUnroutedComponent } from './components/shared/footer-unrouted/foo
     AdminCompraNewRoutedComponent,
     AdminCompraPlistRoutedComponent,
     AdminCompraPlistUnroutedComponent,
-    AdminCompraViewRoutedComponent
+    AdminCompraViewRoutedComponent,
+    UsuarioUsuarioDetailUnroutedComponent,
+    UsuarioUsuarioFeaturedUnroutedComponent,
+    UsuarioCompraDetailUnroutedComponent,
+    UsuarioCompraFormUnroutedComponent
    ],
   imports: [
     BrowserModule,
