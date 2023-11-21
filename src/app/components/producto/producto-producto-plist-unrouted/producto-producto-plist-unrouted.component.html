@@ -1,3 +1,47 @@
-<p>
-  producto-producto-plist-unrouted works!
-</p>
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <div class="d-flex justify-content-between">
+
+    <input type="radio" class="btn-check btn-sm" name="options-outlined" id="success-outlined" autocomplete="off"
+       (change)="onOrderChange($event)" [checked]="activeOrder">
+    <label class="btn btn-outline-success" for="success-outlined">Por lo más nuevo</label>
+
+    <h5 class="px-2">Mostrando {{oPage?.numberOfElements}} productos de un total de {{oPage?.totalElements}}.</h5>
+
+    <input type="radio" class="btn-check btn-sm" name="options-outlined" id="danger-outlined" autocomplete="off"
+       (change)="onOrderChange($event)" [checked]="!activeOrder">
+    <label class="btn btn-outline-danger" for="danger-outlined">Por lo más popular</label>
+
+  </div>
+
+  <div class="flex justify-content-center m-1">
+    <p-paginator (onPageChange)="onPageChange($event)" [first]="oPaginatorState.first!" [rows]="oPaginatorState.rows!"
+      [totalRecords]="oPage?.totalElements || 0" [rowsPerPageOptions]="" [showPageLinks]="false"></p-paginator>
+  </div>
+
+  <div class=" d-flex">
+    <ul class="list-group">
+
+      <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let producto of oPage?.content"
+        (click)="doShowCompras(producto)" [ngClass]="{active: producto.id==activeProducto?.id}">
+
+        <div class="ms-2 me-auto">
+          <a href="">{{producto.nombre}}</a>
+        </div>
+        <div class="ms-1">
+          <span class="badge bg-light">
+            <span class="badge bg-secondary rounded-pill">{{producto.compras}}</span>
+          </span>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>

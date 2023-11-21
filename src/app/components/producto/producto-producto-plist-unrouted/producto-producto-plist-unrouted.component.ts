@@ -23,8 +23,8 @@ export class ProductoProductoPlistUnroutedComponent implements OnInit {
   oPage: IProductoPage | undefined;
   oUsuario: IUsuario | null = null; // data of user if id_user is set for filter
   orderField: string = "id";
-  orderDirection: string = "desc";
-  oPaginatorState: PaginatorState = { first: 0, rows: 50, page: 0, pageCount: 0 };
+  orderDirection: string = "asc";
+  oPaginatorState: PaginatorState = { first: 0, rows: 10, page: 0, pageCount: 0 };
   status: HttpErrorResponse | null = null;
   oProductoToRemove: IProducto | null = null;
   ref: DynamicDialogRef | undefined;
@@ -39,7 +39,7 @@ export class ProductoProductoPlistUnroutedComponent implements OnInit {
     this.reload.subscribe(response => {
       if (response) {
         if (this.activeOrder) {
-          this.oProductoAjaxService.getPage(this.oPaginatorState.rows, this.oPaginatorState.page, this.orderField, this.orderDirection, this.id_user).subscribe({
+          this.oProductoAjaxService.getPage(this.oPaginatorState.rows, this.oPaginatorState.page, this.orderField, this.orderDirection).subscribe({
             next: (data: IProductoPage) => {
               this.oPage = data;
               this.oPaginatorState.pageCount = data.totalPages;
@@ -69,7 +69,7 @@ export class ProductoProductoPlistUnroutedComponent implements OnInit {
   }
 
   getPage(): void {
-    this.oProductoAjaxService.getPage(this.oPaginatorState.rows, this.oPaginatorState.page, this.orderField, this.orderDirection, this.id_user).subscribe({
+    this.oProductoAjaxService.getPage(this.oPaginatorState.rows, this.oPaginatorState.page, this.orderField, this.orderDirection).subscribe({
       next: (data: IProductoPage) => {
         this.oPage = data;
         if (this.oPage.content.length > 0) {

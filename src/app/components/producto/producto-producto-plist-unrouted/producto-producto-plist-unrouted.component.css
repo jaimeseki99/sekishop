@@ -1,0 +1,7 @@
+.active a{
+    color: white !important;
+}
+
+.featured a{
+    background-color: darkgray !important;
+}

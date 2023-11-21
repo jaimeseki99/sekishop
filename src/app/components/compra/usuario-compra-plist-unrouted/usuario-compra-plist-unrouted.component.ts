@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmEventType, ConfirmationService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PaginatorState } from 'primeng/paginator';
 import { ICompra, ICompraPage, IProducto, IUsuario } from 'src/app/model/model.interfaces';
@@ -115,6 +115,28 @@ export class UsuarioCompraPlistUnroutedComponent implements OnInit {
     })
   }
 
+  doRemove(compra: ICompra) {
+    this.oCompraToRemove = compra;
+    this.oConfirmationService.confirm({
+      accept: () => {
+        this.oMatSnackBar.open("Se ha cancelado la compra.", '', { duration: 2000 });
+        this.oCompraAjaxService.removeOne(this.oCompraToRemove?.id).subscribe({
+          next: () => {
+            this.getPage();
+            this.compra_change.emit(true);
+          },
+          error: (error: HttpErrorResponse) => {
+            this.status = error;
+            this.oMatSnackBar.open("No se ha podido cancelar la compra.", "", { duration: 2000 });
+          }
+        });
+      },
+      reject: (type: ConfirmEventType) => {
+        this.oMatSnackBar.open("No se ha podido cancelar la compra.", "", { duration: 2000 });
+      }
+    });
+  }
+
   getUsuario(): void {
     this.oUsuarioAjaxService.getOne(this.id_usuario).subscribe({
       next: (data: IUsuario) => {
@@ -143,7 +165,8 @@ export class UsuarioCompraPlistUnroutedComponent implements OnInit {
     if (this.id_producto_filter > 0 && this.oSesionAjaxService.isSessionActive()) {
       this.ref = this.oDialogService.open(UsuarioCompraFormUnroutedComponent, {
         data: {
-          id_producto: this.id_producto_filter
+          id_usuario: this.id_usuario_filter,
+          id_producto: this.id_producto_filter,
         },
         header: "Nueva compra",
         width: "50%",
