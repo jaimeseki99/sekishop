@@ -36,8 +36,8 @@ export class AdminProductoFormUnroutedComponent implements OnInit {
       id: [oProducto.id],
       nombre: [oProducto.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       categoria: [oProducto.categoria, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-      stock: [oProducto.stock, [Validators.required, Validators.pattern('^[0-9]+$')]],
-      precio: [oProducto.precio, [Validators.required, Validators.pattern('^[0-9]+(\.[0.9]+)?$')]],
+      stock: [oProducto.stock, [Validators.required]],
+      precio: [oProducto.precio, [Validators.required]],
       descripcion: [oProducto.descripcion, [Validators.required, Validators.minLength(10)]]
     });
   }

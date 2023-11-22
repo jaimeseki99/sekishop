@@ -40,19 +40,17 @@
         <div class="form-group">
           <mat-form-field [style.width.px]=350>
             <mat-label>Stock:</mat-label>
-            <input matInput formControlName="stock" placeholder="Stock" required>
+            <input matInput type="number"  formControlName="stock" placeholder="Stock" required>
             <mat-hint align="end">Solo números</mat-hint>
             <mat-error *ngIf="hasError('stock', 'required')">El stock disponible es obligatorio</mat-error>
-            <mat-error *ngIf="hasError('stock', 'pattern')">No puedes escribir letras, sólo números</mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
           <mat-form-field [style.width.px]=350>
             <mat-label>Precio:</mat-label>
-            <input matInput formControlName="precio" placeholder="Precio" required>
+            <input matInput type="number" formControlName="precio" placeholder="Precio" required>
             <mat-hint align="end">Solo números</mat-hint>
             <mat-error *ngIf="hasError('precio', 'required')">El precio del producto es obligatorio</mat-error>
-            <mat-error *ngIf="hasError('precio', 'pattern')">No puedes escribir letras, sólo números, con o sin decimales</mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">

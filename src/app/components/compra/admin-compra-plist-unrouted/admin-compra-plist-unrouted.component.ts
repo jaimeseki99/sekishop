@@ -28,7 +28,7 @@ export class AdminCompraPlistUnroutedComponent implements OnInit {
   oProducto: IProducto | null = null;
   orderField: string = "id";
   orderDirection: string = "asc";
-  oPaginatorState: PaginatorState = { first: 0, rows: 10, page: 10, pageCount: 0};
+  oPaginatorState: PaginatorState = { first: 0, rows: 10, page: 0, pageCount: 0};
   status: HttpErrorResponse | null = null;
   oCompraToRemove: ICompra | null = null;
 
@@ -127,6 +127,7 @@ export class AdminCompraPlistUnroutedComponent implements OnInit {
     this.oUsuarioAjaxService.getOne(this.id_usuario).subscribe({
       next: (data: IUsuario) => {
         this.oUsuario = data;
+        this.getPage();
       },
       error: (error: HttpErrorResponse) => {
         this.status = error;
@@ -138,6 +139,7 @@ export class AdminCompraPlistUnroutedComponent implements OnInit {
     this.oProductoAjaxService.getOne(this.id_producto).subscribe({
       next: (data: IProducto) => {
         this.oProducto = data;
+        this.getPage();
       },
       error: (error: HttpErrorResponse) => {
         this.status = error;
