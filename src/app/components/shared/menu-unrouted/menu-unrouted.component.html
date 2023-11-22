@@ -11,10 +11,10 @@
                   <a class="nav-link" [class.active]="sUrl.startsWith('/admin/usuario')" routerLink="/admin/usuario/plist" *ngIf="strUsername && oSessionUsuario?.rol==false">Usuarios</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" [class.active]="sUrl.startsWith('/admin/producto')" routerLink="/admin/producto/plist" *ngIf="strUsername">Productos</a>
+                  <a class="nav-link" [class.active]="sUrl.startsWith('/admin/producto')" routerLink="/admin/producto/plist" *ngIf="strUsername && oSessionUsuario?.rol==false">Productos</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" [class.active]="sUrl.startsWith('/admin/compra')" routerLink="/admin/compra/plist" *ngIf="strUsername">Compras</a>
+                  <a class="nav-link" [class.active]="sUrl.startsWith('/admin/compra')" routerLink="/admin/compra/plist" *ngIf="strUsername && oSessionUsuario?.rol==false">Compras</a>
               </li>
 
           </ul>

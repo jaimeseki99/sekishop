@@ -55,7 +55,7 @@
       <tr>
         <th>Compras realizadas</th>
         <td>
-          <a routerLink="['/admin', 'compra', 'plist', 'byuser', oUsuario.id]" *ngIf="oUsuario.compras>0">{{oUsuario.compras}}</a>
+          <a [routerLink]="['/admin', 'compra', 'plist', 'byusuario', oUsuario.id]" *ngIf="oUsuario.compras>0">{{oUsuario.compras}}</a>
           <span *ngIf="oUsuario.compras==0">No hay compras</span>
         </td>
       </tr>
