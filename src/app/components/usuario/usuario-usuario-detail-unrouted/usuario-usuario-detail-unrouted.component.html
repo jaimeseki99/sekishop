@@ -39,7 +39,8 @@
       </tr>
       <tr>
         <th>Rol</th>
-        <td>{{oUsuario.rol}}</td>
+        <td><span *ngIf="oUsuario.rol==false">Admin</span>
+        <span *ngIg="oUsuario.rol==true"></span></td>
       </tr>
       <tr>
         <th>Compras</th>

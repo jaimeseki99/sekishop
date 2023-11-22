@@ -16,8 +16,6 @@ export class UsuarioUsuarioFeaturedUnroutedComponent implements OnInit {
   status: HttpErrorResponse | null = null;
   oUsuarioToRemove: IUsuario | null = null;
 
-  @Output() usuarioClicked: EventEmitter<number> = new EventEmitter<number>();
-
   constructor(
     private oUsuarioAjaxService: UsuarioAjaxService,
   ) { }
@@ -38,9 +36,5 @@ export class UsuarioUsuarioFeaturedUnroutedComponent implements OnInit {
   })
 
 }
-
-  onUsuariolick(usuarioId: number) {
-    this.usuarioClicked.emit(usuarioId);
-  }
 
 }
